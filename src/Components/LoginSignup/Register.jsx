@@ -1,50 +1,57 @@
-// import React from 'react'
-
-// const Register = () => {
-//   return (
-//     <div>
-    
-//     <div className="r2">
-//     {/* {console.log(user)} */}
-// <p className="r1">Create Your Account</p>
-// <input className="r3" type="text" name="name"  placeholder="Enter Your Name" />
-// <br />
-// <br />
-// <input className="r3" type="text" name="email"  placeholder="Enter Your E-mail"  />
-// <br /><br />
-// <input className="r3" type="password" name="password"  placeholder="Enter Your Password" />
-// <br />
-// <br />
-// <button className="r4">Create Account</button>
-// <br />
-// <br />
-// <div>Or Sign Up With</div>
-// <br />
-
-// <br />
-// <br />
-// <label className="label" htmlFor="">Already have account ?</label>
-
-// {/* <button className="r4">Log in</button> */}
-
-// </div>
-
-
-
-//     </div>
-//   )
-// }
-
-// export default Register
-
-
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import Login from './Login'
+
 import "./LoginSignup.css"
+import { useDispatch } from "react-redux"
+import { useNavigate } from "react-router-dom"
+import { Register_Request } from '../../Redux/singup/action'
+
+
 
 
 const Register = () => {
+
+
+
+  const dispatch=useDispatch();
+  const navigate =useNavigate()
+  const [user,setUser] = useState({
+      name:"",
+      email:"",
+      password:""
+  })
+
+  const handleChange =(e)=>{
+      const{name,value} =e.target;
+      
+
+    
+     
+      setUser({...user,[name]:value,})
+  }
+
+  console.log("user",user);
+  const register   =()=>{
+      const {name,email,password} = user
+      
+      if(name && email  && password ){
+         
+        dispatch(Register_Request(user,navigate))
+          
+      }
+         
+
+      else{
+          alert ("Please fill all the spaces")
+      }
+     
+  }
+
+
+
+
+
+
   return (
     <div>
     <div className='homescreen'> 
@@ -70,20 +77,16 @@ const Register = () => {
      <div className="r2">
      {/* {console.log(user)} */}
  <p className="r1"><h3>Create Your Account</h3></p>
- <input className="r3" type="text" name="name"  placeholder="Enter Your Name" />
+ <input className="r3" type="text" name="name" value={user.name} onChange={handleChange}  placeholder="Enter Your Name" />
  <br />
  <br />
- <input className="r3" type="text" name="email"  placeholder="Enter Your E-mail"  />
+ <input className="r3" type="text" name="email" value={user.email} onChange={handleChange}  placeholder="Enter Your E-mail"  />
  <br /><br />
- <input className="r3" type="password" name="password"  placeholder="Enter Your Password" />
+ <input className="r3" type="password" name="password" value={user.password} onChange={handleChange} placeholder="Enter Your Password" />
  <br />
  <br />
  
- <br />
-
- <br />
- <br />
- <button style={{padding:"10px",backgroundColor:"#3380f2",borderRadius:"10px",width:"240px"}}>Register</button>
+ <button onClick={register} style={{padding:"10px",backgroundColor:"#3380f2",borderRadius:"10px",width:"240px"}}>Register</button>
  <br />
  <br />
  

@@ -2,42 +2,48 @@ import React, { useState } from 'react'
 import Login from './Login'
 import "./LoginSignup.css"
 import Register from './Register'
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import { Login_Request } from '../../Redux/signin/action';
 
 const Screen = () => {
 
 
 
-  const [user,setUser] = useState({
-       
-    email:"",
-    password:""
-})
-
-
-const handleChange =e=>{
-  const{name,value} =e.target
+  const dispatch=useDispatch()
+  const data = useSelector((store)=>store.SignIn.data)
+  console.log("login",data)
   
+      const  navigate =useNavigate()
+ const [user,setUser] = useState({
+    
+     email:"",
+     password:""
+ })
 
-
- 
-  setUser({
-      ...user,
-      [name]:value,
+ const handleChange =e=>{
+     const{name,value} =e.target
      
-     
-     
-     
-  })
-}
+
+   
+    
+     setUser({
+         ...user,
+         [name]:value,
+        
+        
+        
+        
+     })
+ }
 
 
 
+ const login  =() =>{
+     dispatch(Login_Request(user,navigate))
+     console.log(user, "user")
+ }
 
-
-const login  =() =>{
- Navigate("/adminpannel")
-}
 
 
 
@@ -63,10 +69,10 @@ const login  =() =>{
 
 <p className="r1"><h3>Log inito Your Account</h3></p>
 <br></br>
-<input className="mail" type="text" name="email"  placeholder=" Your E-mail id" />
+<input className="mail" type="text" name="email"  value={user.email} placeholder="Enter Your E-mail id" onChange={handleChange} />
 <br />
 <br />
-<input className="mail" type="password" name="password"  placeholder=" Your Password" />
+<input className="mail" type="password" name="password"   value={user.password} placeholder="Enter Your Password" onChange={handleChange} />
 <br />
 <br />
 <br />
@@ -74,9 +80,9 @@ const login  =() =>{
 <br />
 <br />
 
-<button className="l2" 
-onClick=
-{login}
+    <button   onClick=
+    {login} className="l2" 
+
 style={{padding:"10px",backgroundColor:"#3380f2",borderRadius:"10px",width:"240px"}}
 >Log in</button>
 <br />
