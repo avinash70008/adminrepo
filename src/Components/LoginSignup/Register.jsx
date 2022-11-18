@@ -50,8 +50,8 @@ const Register = () => {
     <div className='homescreen'> 
 <div style={{display:"flex",flexDirection:"row",height:"90vh",width:"120vh",marginLeft:"500px"}}>
 
-<div style={{border:"5px solid black",marginTop:"150px",width:"60%"}}><img style={{width:"100%", height:"100%"}} src='https://img.freepik.com/premium-photo/group-teens-spending-time-lake-beach_186382-76.jpg?size=626&ext=jpg&uid=R84358958&ga=GA1.2.1898142672.1667996362&semt=sph' alt='smalldivimg'/></div>
-<div style={{border:"5px solid black",marginTop:"150px",width:"40%",backgroundColor:"white"}}>
+<div style={{marginTop:"150px",width:"60%"}}><img style={{width:"100%", height:"100%"}} src='https://img.freepik.com/premium-photo/group-teens-spending-time-lake-beach_186382-76.jpg?size=626&ext=jpg&uid=R84358958&ga=GA1.2.1898142672.1667996362&semt=sph' alt='smalldivimg'/></div>
+<div style={{marginTop:"150px",width:"40%",backgroundColor:"white"}}>
 <div> 
 <div className="l1">
 <div style={{display:"flex",flexDirection:"row"}}>
