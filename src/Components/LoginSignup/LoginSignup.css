@@ -3,8 +3,44 @@
     background-repeat: no-repeat; 
     background-size: cover; 
     height: 100vh;
+    object-fit: cover;
+    
+
 }
 
-input[type=text]:focus {
-    border: 3px solid #555;
+
+input[type=text ] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 0.5px solid rgb(22, 21, 21);
   }
+
+
+  input[type=password ] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 0.5px solid rgb(22, 21, 21);
+  }
+
+
+a{
+    text-decoration: none;
+}
+
+
+  .mail{
+    width: 280px;
+    height: 30px;
+  }
+
+  .r2 {
+    padding: 15px;
+    margin-top: -20px;
+  }
+  
