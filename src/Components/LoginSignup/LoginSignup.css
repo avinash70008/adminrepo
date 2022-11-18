@@ -1,0 +1,10 @@
+.homescreen{
+    background-image: url("https://img.freepik.com/premium-photo/group-teens-spending-time-lake-beach_186382-76.jpg?size=626&ext=jpg&uid=R84358958&ga=GA1.2.1898142672.1667996362&semt=sph");
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    height: 100vh;
+}
+
+input[type=text]:focus {
+    border: 3px solid #555;
+  }
